@@ -1,20 +1,21 @@
 {
-  "name": "LaunchLab",
-  "description": "demo app of LaunchLab",
+  "name": "Hunting App",
+  "description": "beta hunting app",
   "version": "0.1.0",
   "private": true,
   "keywords": [
-    "demo",
-    "LaunchLab"
+    "beta",
+    "hunting",
+    "app"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/LaunchLab/LaunchLab.git"
+    "url": "https://github.com/DaganRead/huntingApp.git"
   },
   "contributors": [
     {
       "name": "Dagan Read",
-      "email": "dagan@blackladder.co.za"
+      "email": "daganread@gmail.com"
     }
   ],
   "dependencies": {

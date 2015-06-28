@@ -1,0 +1,7 @@
+<article id="card">
+	<img id="thumbnail" ng-src="{{portfolioProject.coverImage}}" />
+	<input id="title" type="text" placeholder="{{portfolioProject.title}}" ng-model="portfolioProject.title" />
+	<textarea id="description" rows="4" cols="50" ng-model="portfolioProject.description"></textarea>
+	<input id="submit" type="button" value="Submit" ng-click="saveCard()" />
+	<input id="submit" type="button" value="Delete" ng-click="removeProject()" />
+</article>

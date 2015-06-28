@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+  <script src="/lib/pace.min.js"></script>
+  <link href="/css/pace.css" rel="stylesheet" />
+  <meta charset="utf-8">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0">
+  <title>{% block title %}LaunchLab{% endblock %}</title>
+
+	<link rel="icon" sizes="196x196" href="/iconbig.png">
+  <link rel="icon" sizes="128x128" href="/iconmedium.png">
+  <link rel="apple-touch-icon" sizes="128x128" href="/iconmedium.png">
+  <link rel="apple-touch-icon-precomposed" sizes="128x128" href="/iconmedium.png">
+
+<link rel="stylesheet" href="/css/basic.css">
+
+<link rel="stylesheet" href="/css/pure-min.css">
+
+<!--[if lte IE 8]>
+    <link rel="stylesheet" href="/css/grids-responsive-old-ie-min.css">
+<![endif]-->
+<!--[if gt IE 8]><!-->
+    <link rel="stylesheet" href="/css/grids-responsive-min.css">
+<!--<![endif]-->
+
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+
+<script src="/lib/jquery-1.11.0.min.js"></script>
+<script src="/lib/jquery.timeago.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="/css/launchlab.css">
+  {% block head %}
+
+
+  {% endblock %}
+</head>
+<body>
+
+
+
+
+
+
+
+
+{% if not username %}
+<div class="header">
+    <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed splashtopmenu" style="background: #111; border-bottom: none; -webkit-box-shadow: none;">
+     <a class="pure-menu-heading" href="/"><img class="mainlogo" src="/images/logo.png"></a>
+       <span style="font-size: 10px; margin-left: -16px; ">beta</span>
+       <span class="topnum" style="margin-left: 20px;  color: rgb(115, 115, 115); ">+27 (12) 648 9241</span>
+       
+       {% if loginpage %}
+       <a href="/" class="signinbutton"><span class="signInButtonText">Register</span> </a>
+       {% endif %}
+
+       {% if not loginpage %}
+       <a href="/login" class="signinbutton"><span class="signInButtonText">Sign in</span> </a>
+       {% endif %}
+
+      
+    </div>
+</div>
+{% endif %}
+
+{% if username %}
+<div class="header">
+    <div class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed splashtopmenu" style="background: #111; border-bottom: none; -webkit-box-shadow: none;">
+     <a class="pure-menu-heading" href="/"><img class="mainlogo" src="/images/logo.png"></a>
+       <span style="font-size: 10px; margin-left: -16px; ">beta</span>
+       <span style="margin-left: 20px;  color: rgb(115, 115, 115); ">+27 (12) 648 9241</span>
+ <ul>
+
+           {% if admin %}
+              <li><a href="/admin" ><i class="fa fa-shield"></i></a></li> 
+            {% endif %}           
+            
+            <li><a href="/"><i class="fa fa-home"></i> home</a></li>
+            <li><a href="/work" ><i class="fa fa-rocket "></i> work</a></li> 
+            <li><a href="/offerings/new" ><i class="fa fa-upload "></i> upload</a></li>            
+            <li><a href="/{{ username }}"><i class="fa fa-child"></i> {{ username }}</a></li> 
+            <li><a href="/logout"><i class="fa fa-times"></i> logout</a></li>
+        </ul>
+    </div>
+</div>
+{% endif %}
+
+<script>
+$(".signinbutton").hover( function() {
+  $(".signInButtonText").css("color", "#e94123")
+}, function() {
+  $(".signInButtonText").css("color", "#fff")
+})
+</script>
+
+
+{% block content %}{% endblock %}
+
+
+
+
+</body>
+</html>

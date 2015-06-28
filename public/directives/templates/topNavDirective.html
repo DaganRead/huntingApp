@@ -1,0 +1,19 @@
+<section id="topNav" ng-controller="topNav">
+    <modal-window class="md-larger" bind-compiled-html="avatarCropModalWindow.html" bind-title="avatarCropModalWindow.title" use="avatarCropModalWindow.use"></modal-window>
+    <modal-window class="md-larger" bind-compiled-html="profileModalWindow.html" bind-title="profileModalWindow.title" use="profileModalWindow.use"></modal-window>
+	<modal-window bind-compiled-html="loginModalWindow.html" bind-title="loginModalWindow.title" use="loginModalWindow.use"></modal-window>
+	<modal-window bind-compiled-html="settingsModalWindow.html" bind-title="settingsModalWindow.title" use="settingsModalWindow.use"></modal-window>
+    <img id="logo" ng-src="../../images/Logo.svg">
+    <div ng-if="user.authed" class="animate-if">
+	    <input type="button" id="logout" ng-click="logoutEventHandler()" class="orangeActionButton" value="Logout" />
+	    <input type="image" id="settings" ng-click="settingsModalEnterEventHandler()" ng-src="../../images/settings_gear.svg" alt="Preferences"/>
+	    <a ng-click="profileModalEnterEventHandler()" id="profile">
+            <figure id="avatar"><img ng-src="{{ user.avatar }}"/></figure>
+           <figcaption id="username">{{ user.username }}</figcaption>
+        </a>
+    	<article id="notifications"><span>{{ user.notifications }}</span></article>
+    </div>
+    <div ng-if="!user.authed" class="animate-if">
+        <input type="button" id="login" ng-click="loginModalEnterEventHandler()" class="orangeActionButton" value="Login" />
+    </div>
+</section>

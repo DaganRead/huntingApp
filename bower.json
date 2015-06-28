@@ -1,0 +1,12 @@
+{
+  "name": "LaunchLab",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "angular-bootstrap-datetimepicker": "latest",
+    "moment": "latest",
+    "angular": "latest",
+    "bootstrap": "latest",
+    "checklist-model": "latest"
+  }
+}

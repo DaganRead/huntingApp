@@ -1,0 +1,27 @@
+<label id="portfolioDropZone" for="portfolioDrop">
+    	<span><img ng-src="../../images/add_button.svg" /></span>
+</label>
+<input id="portfolioDrop" type="file" value="Add project" />
+<article class="project" ng-repeat="project in filteredProjects track by $index"><!--| filter:q as results-->
+    	<img ng-src="{{project.coverImage}}" />
+    	<aside>
+    		<figcaption>{{project.title}}</figcaption>
+    		<span class="comments">{{project.commentCount}}</span>
+    		<span class="views">{{project.viewCount}}</span>
+    		<a ng-if="project.title && project.status == 'complete'" ng-click="portfolioSelect(project)" >Edit project</a>
+            <a ng-if="!project.title && project.status == 'complete'" ng-click="portfolioSelect(project)" >Edit project</a>
+            <a ng-if="!project.title && project.status == 'running'" href="../projects/:Untitled" ng-click="projectSelect(project.id)" >Edit project</a>
+            <a ng-if="project.title && project.status == 'running'" href="../projects/:{{project.title}}" ng-click="projectSelect(project.id)" >Edit project</a>
+    	</aside>
+</article>
+<controls>
+    <input type="radio" ng-model="portfolioController" ng-change="changeData('running')" value="Current Projects" >
+    <input type="radio" ng-model="portfolioController" ng-change="changeData('complete')" value="Portfolio" >
+    <!-- <input type="radio" ng-model="portfolioController" ng-change="changeData('')" value="Portfolio By catagory" > -->
+</controls>
+<!-- <controls> Bubbles
+	<input type="radio" ng-model="portfolioController" ng-change="changeData(portfolioController)" value="Current Projects" >
+	<input type="radio" ng-model="portfolioController" ng-change="changeData(portfolioController)" value="Portfolio" >
+	<input type="radio" ng-show="controllerPlaceholder" class="animate-show" ng-model="portfolioController" ng-change="changeData(portfolioController)" value="Portfolio By catagory" >
+</controls>
+<div id="vis"></div> -->

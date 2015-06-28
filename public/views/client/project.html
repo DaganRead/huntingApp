@@ -1,0 +1,25 @@
+<modal-window bind-compiled-html="taskAddModalWindow.html" bind-title="taskAddModalWindow.title" use="taskAddModalWindow.use"></modal-window>
+<gantt></gantt>
+<section class="tabs">
+    <input id="tab-1" type="radio" name="radio-set" class="tab-selector-1" checked="checked" />
+    <label for="tab-1" class="tab-label-1">Client|Mentor</label>
+
+    <input id="tab-2" type="radio" name="radio-set" class="tab-selector-2" />
+    <label for="tab-2" class="tab-label-2">Mentor|Creative</label>
+
+    <div class="clear-shadow"></div>
+
+    <div class="content">
+        <div class="content-1">
+            <p>Chat between client and mentor</p>
+        </div>
+        <div class="content-2">
+            <p>Chat between mentor and creative</p>
+        </div>
+    </div>
+</section>
+<br class="clear" />
+<section class="taskList">
+	<h2>Task List</h2>
+    <span class="task-item" ng-repeat="task in tasks track by $index">{{task.taskName}}<span class="confirmTask" ng-click="confirmTask(task.taskName)">&#x2611;</span><span class="removeTask" ng-click="removeTask(task.taskName)">&#x2612;</span></span><br ng-repeat="task in tasks track by $index"/>
+</section> 

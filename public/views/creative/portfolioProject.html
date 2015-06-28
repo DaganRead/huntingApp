@@ -1,0 +1,21 @@
+<modal-window class="md-larger" bind-compiled-html="portfolioCropModalWindow.html" bind-title="portfolioCropModalWindow.title" use="portfolioCropModalWindow.use"></modal-window>
+<modal-window class="md-larger" bind-compiled-html="largerViewModalWindow.html" bind-title="largerViewModalWindow.title" use="largerViewModalWindow.use"></modal-window>
+<section class="portfolioProject">
+	<article id="card">
+		<img id="thumbnail" ng-src="{{portfolioProject.coverImage}}"/>
+		<input id="title" type="text" placeholder="{{portfolioProject.title}}" ng-model="portfolioProject.title" />
+		<textarea id="description" rows="4" cols="50" ng-model="portfolioProject.description"></textarea>
+		<input id="submit" type="button" value="Submit" ng-click="saveCard()" />
+		<input id="submit" type="button" value="Delete" ng-click="removeProject()" />
+	</article>
+	<article id="files">
+		<label id="portfolioDropZone" for="portfolioDrop"> <span><img ng-src="../../images/add_button.svg"/></span></label>
+		<input id="portfolioDrop" type="file" value="Add project"/>
+
+		<article class="portfolioImage" ng-repeat="file in filteredArray"> 
+			<figure ng-style="{'background-image':'url({{file.dataURI}})'}" ng-click="largerView(file)"></figure>
+			<span ng-click="removeFile(file.filename)">Remove</span>
+		</article>
+	</article>
+</section>
+<comment-box></comment-box>
